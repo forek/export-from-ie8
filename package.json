@@ -1,0 +1,30 @@
+{
+  "name": "export-from-ie8",
+  "version": "1.0.0",
+  "description": "solution to the problem: 'export { foo } from \"./baz\"' in ie8. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forek/export-from-ie8.git"
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "jstransform",
+    "ie8",
+    "export-from"
+  ],
+  "author": "forek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forek/export-from-ie8/issues"
+  },
+  "homepage": "https://github.com/forek/export-from-ie8#readme",
+  "dependencies": {
+    "jstransform": "^11.0.0",
+    "through": "^2.3.4"
+  }
+}
