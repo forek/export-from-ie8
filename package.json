@@ -1,6 +1,6 @@
 {
   "name": "export-from-ie8",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "solution to the problem: 'export { foo } from \"./baz\"' in ie8. ",
   "main": "index.js",
   "scripts": {
