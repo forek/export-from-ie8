@@ -1,10 +1,10 @@
 {
   "name": "export-from-ie8",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "solution to the problem: 'export { foo } from \"./baz\"' in ie8. ",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "jasmine-node test"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,8 @@
   "dependencies": {
     "jstransform": "^11.0.0",
     "through": "^2.3.4"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.13.1"
   }
 }
