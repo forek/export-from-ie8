@@ -4,7 +4,7 @@ var utils = require('jstransform/src/utils');
 var Syntax = jstransform.Syntax;
 
 function visitorExportsDefinePropertyGet(traverse, node, path, state) {
-  var exportsStr = ['\n', node.expression.arguments[0].name, '.',
+  var exportsStr = [node.expression.arguments[0].name, '.',
     node.expression.arguments[1].value, ' = ',
     node.expression.arguments[2].properties[1].value.body.body[0].argument.object.name, '.',
     node.expression.arguments[2].properties[1].value.body.body[0].argument.property.name].join('');
@@ -23,6 +23,8 @@ visitorExportsDefinePropertyGet.test = function (node, path, state) {
       node.expression.callee.property.name === 'defineProperty' &&
       node.expression.arguments[0].name === 'exports' &&
       node.expression.arguments[1].value !== '__esModule' &&
+      node.expression.arguments[2].properties.length === 2 &&
+      node.expression.arguments[2].properties[0].key.name === 'enumerable' &&
       node.expression.arguments[2].properties[1].key.name === 'get'
     ) {
       return true;

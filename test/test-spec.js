@@ -8,6 +8,6 @@ describe('export-from-ie8', function () {
         return _baz.foo; \
       } \
     });'))
-      .toEqual('\nexports.foo = _baz.foo;');
+      .toEqual('exports.foo = _baz.foo;');
   });
 });

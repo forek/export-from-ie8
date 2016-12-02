@@ -1,6 +1,6 @@
 {
   "name": "export-from-ie8",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "solution to the problem: 'export { foo } from \"./baz\"' in ie8. ",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   },
   "keywords": [
     "webpack",
+    "babel",
     "loader",
     "jstransform",
     "ie8",
