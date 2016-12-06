@@ -15,15 +15,12 @@ Add export-from-ie8/loader into webpack.config.js
 ### Example
 ```javascript
 
-// In
-Object.defineProperty(exports, "foo", { 
-  enumerable: true, 
-  get: function get() { 
-    return _baz.foo; 
-    } 
-  });
+// Before
 
-// Out
+export { foo, bar } from './baz';
+
+// After
+exports.bar = _baz.foo;
 exports.foo = _baz.foo;
 ```
 
