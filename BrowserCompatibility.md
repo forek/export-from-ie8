@@ -68,6 +68,12 @@
     ]
   }
 ```
+  * 另外，webpack打包脚本不能添加 `-p` 参数，该参数会导致打包最后进行代码压缩
+
+## Problem - 3.5: 正确使用`es3ify-webpack-plugin`后依然存在保留字错误
+解决方案: 
+  * 检查是否配置了`resolve.alias`引用预打包的`min.js`文件，`webpack-plugin`不会处理`resolve.alias`引用的文件，请将该配置去掉
+
 ## Problem - 4: react-router 等组件 defineProperty 报错
 解决方案: 
   * 使用 `export-from-ie8`
@@ -146,16 +152,26 @@
 解决方案: 
   * 请换一个包谢谢 :)
 
-## Problem - 10: 生产环境使用`UglifyJsPlugin`压缩代码报错
+## Problem - 10: 生产环境使用`UglifyJsPlugin`压缩代码后，运行报错
 解决方案:
-  * 尝试使用兼容IE配置
+  * 该错误主要由`uglify-js`的命名压缩模块`mangle_names`产生，尝试使用兼容IE8配置
 ```javascript
   {
     plugins: [
       new webpack.optimize.UglifyJsPlugin({
-        output: {
+        mangle: {
           screw_ie8: false
         }
+      })
+    ]
+  }
+```
+  * 使用了兼容配置依然存在错误，请禁用`mangle`
+```javascript
+  {
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        mangle: false
       })
     ]
   }
@@ -177,6 +193,11 @@
       ...
   }
 ```
+  * 使用 `console-polyfill` 做简单的控制台输出兼容
+```javascript
+  import 'console-polyfill';
+```
+  
 
 # Chapter - 2: 360浏览器
 ## Problem - 1: 如何默认使用高速模式
